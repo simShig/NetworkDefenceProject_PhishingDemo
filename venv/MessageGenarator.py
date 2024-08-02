@@ -42,13 +42,13 @@ def get_completion(prompt_sys, prompt_user, model=deployment_name ):#"gpt-3.5-tu
 
 
 # Function to load JSON data from a file
-def load_json_from_file(filename):
-    with open(filename, 'r', encoding="utf-8") as file:
-        return json.load(file)
-
-
-# Load JSON data from the file
-data = load_json_from_file('linkdin_data.json')
+# def load_json_from_file(filename):
+#     with open(filename, 'r', encoding="utf-8") as file:
+#         return json.load(file)
+# 
+# 
+# # Load JSON data from the file
+# data = load_json_from_file('linkdin_data.json')
 
 
 def Data2Message(data):  ##data is json
