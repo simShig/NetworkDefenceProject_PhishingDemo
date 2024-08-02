@@ -4,26 +4,27 @@ import openai
 import os
 from openai import AzureOpenAI
 from openai import OpenAI
-import env
 
 
-from openai import OpenAI
+from dotenv import load_dotenv
 
 client = OpenAI()
+# Load environment variables from .env file
+load_dotenv()
 
-openai.api_type = env.API_TYPE
-openai.api_base = env.API_BASE
-openai.api_key =  env.API_KEY
-openai.api_version = env.API_VERSION
+# Retrieve the environment variables
+openai.api_type = os.getenv("API_TYPE")
+openai.api_base = os.getenv("API_BASE")
+openai.api_key = os.getenv("API_KEY")
+openai.api_version = os.getenv("API_VERSION")
 
 client = AzureOpenAI(
-    api_key= env.API_KEY,
-    api_version= env.API_VERSION,
-    azure_endpoint= env.AZURE_ENDPOINT,
+    api_key=os.getenv("API_KEY"),
+    api_version=os.getenv("API_VERSION"),
+    azure_endpoint=os.getenv("AZURE_ENDPOINT"),
 )
 
-deployment_name = env.DEPLOYMENT_NAME
-
+deployment_name = os.getenv("DEPLOYMENT_NAME")
 
 def get_completion(prompt_sys, prompt_user, model=deployment_name ):#"gpt-3.5-turbo-16k"):#"gpt-3.5-turbo-16k-0613"):#:#"gpt-3.5-turbo"):
     messages = [{"role": "system", "content": prompt_sys},
