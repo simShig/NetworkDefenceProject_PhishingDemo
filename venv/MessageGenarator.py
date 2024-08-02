@@ -8,7 +8,7 @@ from openai import OpenAI
 
 from dotenv import load_dotenv
 
-client = OpenAI()
+# client = OpenAI()
 # Load environment variables from .env file
 load_dotenv()
 
